@@ -1,74 +1,17 @@
-# MBI - Modern Bank Of India
-
-A modern digital banking management platform with role-based access for Customers and Bank Administrators, powered by a **React** frontend, a **Java (Spring Boot 3.4)** backend, and a **SQL** relational database.
-
----
-
-## ⚡ Quick Start (1-Click)
-
-Simply double-click the **`start.bat`** file in `E:\MBI`. It will automatically:
-1. Start the Spring Boot backend on `http://localhost:8080`.
-2. Start the Vite React frontend on `http://localhost:5173`.
-3. Open `http://localhost:5173` in your default browser.
-
----
-
-## 🛠️ Manual Terminal Run Instructions
-
-If you prefer running via separate terminals or PowerShell:
-
-### 1. Run Backend (Java Spring Boot)
-Open a terminal / PowerShell window:
-```powershell
-cd E:\MBI\backend
+🏦 MBI — Modern Bank Of IndiaNext-Generation Core Banking & Digital Account Management PlatformA full-stack digital banking ecosystem featuring role-based governance, real-time double-entry ledgers, 3D interactive virtual debit cards, and multi-layered customer authentication.⚡ Quick Start • 🛠️ Manual Setup • 🛡️ Admin Authority • 🔐 Customer Lifecycle🌟 Platform OverviewModern Bank Of India (MBI) simulates an enterprise-grade retail banking environment. Built on a decoupled React + Vite client and a Java Spring Boot 3.4 REST API, the platform eliminates static dummy data in favor of a true end-to-end banking lifecycle—from branch-level KYC onboarding to MPIN-secured customer self-service.⚡ Quick Start (1-Click Launch)Want to spin up the entire stack immediately?Navigate to your project root directory: E:\MBIDouble-click start.batWhat happens automatically:🚀 Boots the Spring Boot API on http://localhost:8080⚡ Launches the Vite React Client on http://localhost:5173🌐 Opens your default browser directly to the MBI Banking Portal🛠️ Manual Terminal InstallationIf you prefer running services independently for debugging or development, open two separate terminal/PowerShell instances:1️⃣ Start the Backend Engine (Spring Boot)cd E:\MBI\backend
 .\mvnw.cmd spring-boot:run
-```
-- **Backend Port**: `http://localhost:8080`
-- **H2 Database Console**: `http://localhost:8080/h2-console`
-  - JDBC URL: `jdbc:h2:file:./data/bankdb`
-  - User: `sa`
-  - Password: *(leave blank)*
-
----
-
-### 2. Run Frontend (React + Vite)
-Open a second terminal / PowerShell window:
-```powershell
-cd E:\MBI\frontend
+Service EndpointURL / ConfigurationAPI Base URLhttp://localhost:8080H2 Database Consolehttp://localhost:8080/h2-consoleJDBC URLjdbc:h2:file:./data/bankdbCredentialsUser: sa | Password: (leave blank)2️⃣ Start the Frontend Client (React + Vite)cd E:\MBI\frontend
 npm run dev
-```
-- **Frontend App**: `http://localhost:5173`
-
----
-
-## 🔑 Login & Account Governance
-
-### 1. Bank Administrator (Master Authority)
-- **Portal**: Click **"Admin Portal"** on the top right
-- **User ID**: `admin`
-- **Password**: `Admin@12345`
-- **Authority**:
-  - **Open New Customer Accounts**: Enter customer details, Date of Birth (DOB), select from all **28 States & 8 Union Territories of India** with dynamic city suggestions, 12-digit Aadhaar & Mobile OTP verification, and set **ANY opening balance** (e.g. ₹0, ₹10,000, ₹50,000, etc.).
-  - Automatically generates **User ID**, **Temporary Password**, 12-digit **Account Number**, and **IFSC** (`MBIN0001042`).
-  - **Issue Debit Cards**: Issues Virtual Platinum Debit Cards for customer accounts directly from the customer accounts ledger or upon account creation.
-  - View & print customer **Welcome Kit & Account Opening Slip**.
-  - **Freeze / Unfreeze** customer accounts.
-  - Branch Cash Counter Desk for cash deposits and withdrawals.
-  - View system-wide double-entry transaction ledger.
-  - Left-hand slidebar navigation for quick access between services.
-
----
-
-### 2. Customer Account Lifecycle & Security Features
-All dummy users have been removed so the bank administrator can create fresh customer accounts with any balance:
-1. **Creation**: Admin creates the account via **Admin Portal -> Open New Account** with initial deposit, customer Date of Birth, and Indian state/city selection.
-2. **First Login**: Customer logs in using the assigned **User ID** and **Temporary Password**. A 2FA OTP is dispatched and verified.
-3. **Mandatory 4-Digit MPIN Setup**: Immediately upon first login, the customer **must** set their 4-digit MPIN. It cannot be skipped or closed:
-   - Must be exactly **4 numeric digits**.
-   - Must be entered twice (MPIN and Confirm MPIN must match).
-   - **Criteria**: Cannot be `1234`, cannot be 4 identical digits (e.g. `1111`, `2222`), and cannot be the customer's **birth year**.
-   - Verified via **6-digit mobile OTP** before activation.
-4. **Second-Time & Returning Login (Only 4-Digit MPIN)**: When the customer returns to log in, the portal automatically recognizes the user and **only prompts for the 4-digit MPIN**. No password, no user ID typing, and no OTP required! (With an option to switch user or use password).
-5. **Debit Card Issuance & Linking**: If a debit card is issued by the branch admin, the customer securely links and adds it to their dashboard by verifying their **User ID**, **4-digit MPIN**, and **mobile OTP**. Once linked, full interactive card controls (3D flip, lock/freeze, details reveal) are unlocked.
-6. **Dashboard Privacy**: Account Number, IFSC Code, and User ID are **hidden/masked** by default. To reveal these details, the customer clicks **"Show Details"** and enters their 4-digit MPIN.
-7. **Left Slidebar Navigation**: Dashboard options are organized into an intuitive left-hand slidebar navigation menu.
+Web Application URL: http://localhost:5173🛡️ Bank Administrator (Master Authority)All pre-seeded dummy users have been purged so the Administrator has total control over account creation and liquidity.Access Credentials: Click "Admin Portal" on the top-right navigation bar.User ID: adminPassword: Admin@12345Core Administrative Capabilities📝 End-to-End Customer Onboarding:Capture full KYC profiles including Date of Birth (DOB), 12-digit Aadhaar verification, and Mobile OTP validation.Integrated geographic selector covering all 28 States & 8 Union Territories of India with dynamic city suggestions.Flexible initial funding—open accounts with any starting balance (₹0, ₹10,000, ₹50,000+).Auto-generates unique User ID, Temporary Password, 12-digit Account Number, and standard branch IFSC (MBIN0001042).💳 Virtual Card Issuance: Issue Virtual Platinum Debit Cards directly during onboarding or from the customer accounts ledger.🖨️ Printable Welcome Kits: Generate and print official Welcome Kits & Account Opening Slips.💰 Branch Cash Counter Desk: Process real-time over-the-counter cash deposits and withdrawals.📒 Double-Entry Ledger & Controls: Inspect system-wide immutable transaction logs, freeze/unfreeze accounts, and navigate seamlessly via the left-hand sidebar.🔐 Customer Lifecycle & Security ArchitectureMBI enforces strict banking-grade security protocols across every stage of the customer journey:graph LR
+    A[1. Admin KYC Creation] --> B[2. 1st Login + 2FA OTP]
+    B --> C[3. Mandatory 4-Digit MPIN]
+    C --> D[4. Returning MPIN-Only Login]
+    D --> E[5. 3D Debit Card & Privacy Vault]
+Step-by-Step User JourneyAccount Creation: The Bank Admin registers the customer via Admin Portal $\rightarrow$ Open New Account and hands over the generated credentials.First-Time Login & 2FA: Customer signs in using their assigned User ID and Temporary Password, triggering a mandatory 2FA Mobile OTP verification.Mandatory 4-Digit MPIN Setup: Immediately following first login, customers are locked into an unskippable MPIN creation flow:Must be exactly 4 numeric digits and confirmed twice.Anti-Pattern Security Rules: Blocks sequential numbers (1234), repeated digits (1111, 2222), and the customer's birth year.Activated only after verifying a 6-digit Mobile OTP.Frictionless Returning Login: On subsequent visits, MBI recognizes the customer's device session and prompts only for their 4-digit MPIN—no User ID, password, or OTP required (with a quick-switch option for different users).Interactive 3D Virtual Debit Card: Once issued by the branch, customers link their card using their User ID + MPIN + Mobile OTP, unlocking an interactive 3D flippable card with instant freeze/lock toggles and CVV/number reveal controls.Zero-Trust Dashboard Privacy: Sensitive identifiers (Account Number, IFSC Code, and User ID) remain masked (XXXX-XXXX) by default. Revealing them requires clicking "Show Details" and authenticating with the 4-digit MPIN.Slidebar Navigation: Clean, responsive left-hand sidebar menu for effortless switching between accounts, transfers, cards, and statements.E:\MBI\
+├── start.bat               # 1-Click Full-Stack Launcher
+├── backend/                # Java Spring Boot 3.4 REST API & H2 Data Store
+│   ├── src/
+│   └── mvnw.cmd
+└── frontend/               # React + Vite Client Application
+    ├── src/
+    └── package.json
