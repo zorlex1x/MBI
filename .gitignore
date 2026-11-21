@@ -1,0 +1,35 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and Local Config
+.env
+.env.local
+.env.*.local
+*.local
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.log
+node_modules/
+dist/
+
+# Java / Maven Backend
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/data/*.db
+backend/data/*.mv.db
+backend/data/*.trace.db
+target/
+*.class
+
+# IDE & Editors
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.sw?
